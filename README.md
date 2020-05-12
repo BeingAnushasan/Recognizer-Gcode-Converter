@@ -1,5 +1,9 @@
 # Recognizer-Gcode-Converter
 
+#Usage Example:
+```
+python text-to-gcode.py -i file_name -l no_of_lines -o Out_file_name
+```
 
 #Posible Command line arguments include:
 ```
