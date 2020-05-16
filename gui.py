@@ -1,6 +1,7 @@
 from tkinter import *
 import speech_recognition as sr
 from tkinter import messagebox
+import os
 
 # recognizer objecr
 recog = sr.Recognizer()
@@ -20,6 +21,14 @@ def speak_now():
         try:
             mresult = recog.recognize_google(audio, language=lang_from.get())
             print('you said '+mresult)
+            owd = os.getcwd() # would be the MAIN folder
+            nxtdir = owd + "//Cpp" # add the Cpp folder name
+            os.chdir(nxtdir) #  go to the Cpp folder
+            print(nxtdir)
+            f = open("input.txt",encoding='utf8',mode='w')
+            f.write(mresult)
+            f.close()
+            os.chdir(owd)
             translated_label.config(text=mresult)
         except:
             print('Sorry !')
@@ -29,8 +38,15 @@ def speak_now():
 
 
 def print_now():
-    print('Text Printed')
-    translated_label.config(text='Printing Text')
+    print('Text is now being printed...')
+    translated_label.config(text='Text is now being printed...')
+    owd = os.getcwd() # would be the MAIN folder
+    nxtdir = owd + "//Cpp" # add the CPP folder name
+    os.chdir(nxtdir) # change the current working directory
+    os.system('TextToGcode.exe -font "ENG.ttf" -filename gcodeOutput')
+    os.chdir(owd)
+    translated_label.config(text='Success !!')
+    
 
 
 # window
