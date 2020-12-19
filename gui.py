@@ -19,16 +19,24 @@ def speak_now():
         print('Connecting to server...')
         translated_label.config(text='Connecting to Server....')
         try:
-            mresult = recog.recognize_google(audio, language=lang_from.get())
-            print('you said '+mresult)
+            mresult = recog.recognize_google(audio, language='ne-NP')     
+            #print(type(mresult))
+            #mresult = mresult.encode("ascii","ignore") encoding to ascii
+            #print(mresult)
+            #for each_byte in mresult:
+            #    print(each_byte)
+            #    print(hex(ord(each_byte)))  prints the hex value of unicode character
+            print('you said '+mresult)           
             owd = os.getcwd() # would be the MAIN folder
             nxtdir = owd + "//Cpp" # add the Cpp folder name
             os.chdir(nxtdir) #  go to the Cpp folder
             print(nxtdir)
-            f = open("input.txt",encoding='utf8',mode='w')
+            f = open("UniCodeOutput.txt",encoding='utf8',mode='w')
             f.write(mresult)
             f.close()
+            os.system('python unicodeToPreeti.py UniCodeOutput.txt input.txt')
             os.chdir(owd)
+            
             translated_label.config(text=mresult)
         except:
             print('Sorry !')
@@ -43,11 +51,13 @@ def print_now():
     owd = os.getcwd() # would be the MAIN folder
     nxtdir = owd + "//Cpp" # add the CPP folder name
     os.chdir(nxtdir) # change the current working directory
-    os.system('TextToGcode.exe -font "ENG.ttf" -filename gcodeOutput')
+    os.system('TextToGcode.exe -font "PREETI.TTF" -filename gcodeOutput')
     os.chdir(owd)
     translated_label.config(text='Success !!')
     
-
+    
+def reset():
+    os.system('cmd /c ""')
 
 # window
 app = Tk()
@@ -83,6 +93,9 @@ result_label.grid(row=3, column=0)
 result = 'some text'
 translated_label = Label(app, text=result)
 translated_label.grid(row=4,column=2,  padx=10)
+
+reset_btn = Button(app, text='Reset', width=12, command=reset)
+reset_btn.grid(row=7, column=2)
 
 # Look
 app.title("Speech Translation")
