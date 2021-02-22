@@ -53,7 +53,7 @@ void writeText(const char* font, const char* file) {
 	}
 
 	int l_h = 64; /* line height */
-	int b_w = strlen(word.c_str()) * 64; /* bitmap width */
+	int b_w = strlen(word.c_str()) * 32; /* bitmap width */
 	int b_h = 64; /* bitmap height */
 
 	/* create a bitmap for the phrase */
@@ -109,8 +109,6 @@ void writeText(const char* font, const char* file) {
 	free(bitmap);
 }
 
-
-
 void doTrace(const std::string& name) {
 	std::string potfile = "helper/trace.exe -s ";
 	potfile += name;
@@ -123,24 +121,17 @@ void doTrace(const std::string& name) {
 void doGcode(const std::string& name) {
 	std::string gcode = "helper/gcode.exe ";
 	gcode += name;
-	gcode += ".svg -o ";
+	gcode += ".svg -f helper/config.txt -o ";
 	gcode += name;
 	gcode += ".gcode";
 	system(gcode.c_str());
 }
-
-
-
-
 
 void getFilename(std::string& filename) {
 	char str2[100];
 	std::cout << "Filename:";
 	std::cin.getline(str2, 100);
 }
-
-
-
 
 
 int main(int argc, const char * argv[]) {
@@ -178,7 +169,7 @@ int main(int argc, const char * argv[]) {
 	std::string port = lineargs["port"];
 
 	//if (config.size() == 0) {
-		//TODO: Load config for gcode
+		//config = "gcode_config.txt"
 	//}
 
 	if (filename.size() == 0) {
