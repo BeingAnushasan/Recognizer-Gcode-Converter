@@ -15,7 +15,7 @@ def speak_now():
     with sr.Microphone() as source:
         print('Speak Now')
         translated_label.config(text="Speak Now....")
-        audio = recog.listen(source, 5)
+        audio = recog.listen(source, 5, 10)
         print('Connecting to server...')
         translated_label.config(text='Connecting to Server....')
         try:
@@ -52,6 +52,7 @@ def print_now():
     nxtdir = owd + "//Cpp" # add the CPP folder name
     os.chdir(nxtdir) # change the current working directory
     os.system('TextToGcode.exe -font "PREETI.TTF" -filename gcodeOutput')
+    os.system('python print.py')
     os.chdir(owd)
     translated_label.config(text='Success !!')
     
