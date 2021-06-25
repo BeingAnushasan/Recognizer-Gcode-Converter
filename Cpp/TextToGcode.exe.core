@@ -1,0 +1,21 @@
+[main] TextToGcode 1000 (0) exception: trapped!
+[main] TextToGcode 1000 (0) exception: code 0xC0000005 at 0x61052B30
+[main] TextToGcode 1000 (0) exception: ax 0x0 bx 0xA0311C0 cx 0xFFFFFFFF dx 0x0
+[main] TextToGcode 1000 (0) exception: si 0x0 di 0x401000 bp 0x249FA74 sp 0x249FA08
+[main] TextToGcode 1000 (1) exception: exception is: STATUS_ACCESS_VIOLATION
+[main] TextToGcode 1000 (0) stack: Stack trace:
+[main] TextToGcode 1000 (0) stack: frame 0: sp = 0x249F418, pc = 0x6100A2C3
+[main] TextToGcode 1000 (0) stack: frame 1: sp = 0x249F454, pc = 0x77AE9F62
+[main] TextToGcode 1000 (0) stack: frame 2: sp = 0x249F478, pc = 0x77AE9F34
+[main] TextToGcode 1000 (0) stack: frame 3: sp = 0x249F540, pc = 0x77AD53C6
+[main] TextToGcode 1000 (0) stack: frame 4: sp = 0x249FA74, pc = 0x41385E
+[main] TextToGcode 1000 (0) stack: frame 5: sp = 0x249FC5C, pc = 0x4145F4
+[main] TextToGcode 1000 (0) stack: frame 6: sp = 0x249FDB4, pc = 0x61004402
+[main] TextToGcode 1000 (0) stack: frame 7: sp = 0x249FF38, pc = 0x61004420
+[main] TextToGcode 1000 (0) stack: frame 8: sp = 0x249FF44, pc = 0x4309F2
+[main] TextToGcode 1000 (0) stack: frame 9: sp = 0x249FF54, pc = 0x40103A
+[main] TextToGcode 1000 (0) stack: frame 10: sp = 0x249FF70, pc = 0x754B6359
+[main] TextToGcode 1000 (0) stack: frame 11: sp = 0x249FF80, pc = 0x77AC8944
+[main] TextToGcode 1000 (0) stack: frame 12: sp = 0x249FFDC, pc = 0x77AC8914
+[main] TextToGcode 1000 (0) stack: frame 13: sp = 0x249FFEC, pc = 0x0
+[main] TextToGcode 1000 (0) stack: End of stack trace
